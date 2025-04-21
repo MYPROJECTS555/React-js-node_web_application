@@ -1,23 +1,21 @@
-pipeline
-{
+pipeline {
     agent any
-    stages
-    {
-        stage('code-checkout')
+    tools {
+        NodeJS 'NodeJS 18' //Replace NodeJS 18 with the name configured in Global Tool Configuration
+    }
+    stages {
+           stage('codecheckout')
         {
-         steps
-         {
-            git branch : 'main',url : 'https://github.com/MYPROJECTS555/React-js-node_web_application.git'
-         }   
+         steps  
+          {
+            git branch:'deploy' , url:'https://github.com/MYPROJECTS555/React-js-node_web_application.git'
+          } 
         }
-        stage ('install-npm')
-        {
-            steps
-            {
+        stage('Node.js Build') {
+            steps {
                 sh 'node -v'
                 sh 'npm install'
                 sh 'npm run build'
-
             }
         }
     }
