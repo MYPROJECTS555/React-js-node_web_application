@@ -60,7 +60,7 @@ pipeline {
         {
             steps 
             {
-              echo " CI-CD pipeline is running sucessfully "                                                                    
+              echo ' CI-CD pipeline is running sucessfully '                                                                   
             }                        
         }
     }
