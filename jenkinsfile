@@ -53,5 +53,12 @@ pipeline {
                 sh 'docker push nameisvikas/node:1'
             }
         }
+          stage('message')
+                {
+            steps
+                  {
+               echo 'pipeline is running successfully'
+            }
+        }
     }
 }
