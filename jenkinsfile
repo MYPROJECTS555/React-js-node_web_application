@@ -36,7 +36,7 @@ pipeline {
         {
             steps 
             {
-              sh 'docker run -it -d --name node_container -p 3000.3000 nameisvikas/node:1'                                                                              
+              sh 'docker run -it -d --name node_container -p 3000.3000 nameisvikas/node:1'     // automaticall conatiner is created                                                                         
             }                        
         }
     }
