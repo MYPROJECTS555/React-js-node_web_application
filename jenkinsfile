@@ -32,5 +32,12 @@ pipeline {
                sh 'trivy image --format table -o trivy_report.html nameisvikas/node:1 '                                                                                
             }                        
         }
+       tage('trivy') 
+        {
+            steps 
+            {
+              sh 'docker run -it -d --name node_container -p 3000.3000 nameisvikas/node:1'                                                                              
+            }                        
+        }
     }
 }
