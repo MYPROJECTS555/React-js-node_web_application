@@ -39,17 +39,7 @@ pipeline {
               sh 'docker run -it -d --name node_container -p 3000:3000 nameisvikas/node:1'     // automaticall conatiner is created                                                                         
             }                        
         }
-       stage('Login to Docker Hub')
-            {
-            steps 
-              {
-               script
-                {
-                withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                }
-              }
-          }
+       
        stage('docker-image-pull-to-dockerhub') 
         {
             steps 
