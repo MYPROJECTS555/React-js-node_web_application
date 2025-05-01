@@ -48,20 +48,10 @@ pipeline {
                         }
                     }
         }
-       
-       stage('docker-image-pull-to-dockerhub') 
-        {
-            steps 
-            {
-              sh ' docker push nameisvikas/node:1 '                                                                      
-            }                        
-        }
-        stage('docker-image-pull-to-dockerhub') 
-        {
-            steps 
-            {
-              echo ' CI-CD pipeline is running sucessfully '                                                                   
-            }                        
+        stage('Pushing image to repository'){
+            steps{
+                sh 'docker push nameisvikas/node:1'
+            }
         }
     }
 }
