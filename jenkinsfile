@@ -25,14 +25,14 @@ pipeline {
              sh ' docker build -t nameisvikas/node:1 .'         // (cat /etc/group) , (usermod -aG jenkins docker) ,visudo command =(jenkins  ALL=(ALL:ALL) NOPASSWD: /usr/bin/docker) this is giving the permission to docker and jenkins                                                                                                                                                   
             }                        
         }
-      stage('trivy') 
+      stage('trivy-docker-image-scanner') 
         {
             steps 
             {
                sh 'trivy image --format table -o trivy_report.html nameisvikas/node:1 '                                                                                
             }                        
         }
-       tage('trivy') 
+       stage('container-creation') 
         {
             steps 
             {
