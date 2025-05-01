@@ -56,5 +56,12 @@ pipeline {
               sh ' docker push nameisvikas/node:1 '                                                                      
             }                        
         }
+        stage('docker-image-pull-to-dockerhub') 
+        {
+            steps 
+            {
+              echo " CI-CD pipeline is running sucessfully "                                                                    
+            }                        
+        }
     }
 }
