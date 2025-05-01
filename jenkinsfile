@@ -29,7 +29,7 @@ pipeline {
         {
             steps 
             {
-               sh ' trivy --format table -o trivy image-report.html nameisvikas/node:1 '                                                                                 
+               sh 'trivy image --format table -o trivy_report.html nameisvikas/node:1 '                                                                                
             }                        
         }
     }
