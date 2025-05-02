@@ -1,1 +1,26 @@
+
+1) web hook configuration:
+
 http://13.51.235.199:8080/github-webhook/ 
+-----------------------------------------------------------------------------------------------------
+2) cat /etc/group
+  this command is used to check permission 
+  output: jenkins:x:113:
+
+  usermod -aG jenkins docker
+  this is command is used to give permission  to jenkins to docker 
+   output : docker:x:988:jenkins
+----------------------------------------------------------------------------------------------------------
+3) visudo configuration
+
+jenkins  ALL=(ALL:ALL) NOPASSWD: /usr/bin/docker  // 
+jenkins:  The username to which this rule applies.
+
+ALL=(ALL:ALL): This part specifies the context in which the command can be executed.
+ALL:  The first ALL means the user can execute the command from any terminal.
+(ALL:ALL):  This defines the user and group under which the command will be executed. In this case, both are ALL, meaning any user and any group (effectively root).
+NOPASSWD:: This crucial part means that when the jenkins user executes the command specified, they will not be asked to enter their password.
+/usr/bin/docker: This is the absolute path to the docker executable. It's the specific command that the jenkins user is allowed to run without a password.
+
+
+if it is not working restart the server
